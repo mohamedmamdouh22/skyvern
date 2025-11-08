@@ -65,7 +65,6 @@ class SkyvernPageRun:
             TaskRunResponse containing the task execution results.
         """
 
-        await self._browser.sdk.ensure_has_server()
         task_run = await self._browser.client.run_task(
             prompt=prompt,
             engine=engine,
@@ -124,7 +123,6 @@ class SkyvernPageRun:
             WorkflowRunResponse containing the login workflow execution results.
         """
 
-        await self._browser.sdk.ensure_has_server()
         workflow_run = await self._browser.client.login(
             credential_type=credential_type,
             url=url or self._get_page_url(),
@@ -172,7 +170,6 @@ class SkyvernPageRun:
             WorkflowRunResponse containing the workflow execution results.
         """
 
-        await self._browser.sdk.ensure_has_server()
         workflow_run = await self._browser.client.run_workflow(
             workflow_id=workflow_id,
             parameters=parameters,
